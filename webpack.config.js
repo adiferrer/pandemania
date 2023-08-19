@@ -8,7 +8,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Pandemia',
-      // favicon: 'src/assets/cat-face.svg',
     }),
   ],
   output: {
