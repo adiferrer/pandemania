@@ -31,12 +31,20 @@ body {
 }
 
 h1 {
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+}
+
+h1,
+h2 {
     color: var(--light-color);
     text-transform: uppercase;
     font-size: 4.6em;
     font-weight: 700;
-    margin-top: 0.5em;
-    padding-top: 0.5em;
+}
+
+p {
+    font-family: 'Gatwick', sans-serif;
 }
 
 .container {
@@ -99,7 +107,7 @@ h1 {
     align-items: center;
 }
 
-.titleDivTOC>h2:first-of-type {
+.titleDivTOC>h3:first-of-type {
     color: var(--dark-color);
     font-size: 3em;
     font-weight: 700;
@@ -107,7 +115,7 @@ h1 {
     margin-top: 0.7em;
 }
 
-.titleDivTOC>h2:last-of-type {
+.titleDivTOC>h3:last-of-type {
     color: var(--light-color);
     font-size: 2em;
     font-weight: 700;
@@ -116,7 +124,7 @@ h1 {
     line-height: 0.1;
 }
 
-.titleDivTOC>h3 {
+.titleDivTOC>h2 {
     color: var(--dark-color);
     font-size: 0.9em;
     font-weight: 700;
@@ -148,6 +156,7 @@ h1 {
 .TOCCredit {
     color: var(--dark-color);
     font-size: 0.7em;
+    font-family: 'Aileron', sans-serif;
 }
 
 /* The Mask Page */ 
@@ -160,7 +169,7 @@ h1 {
     flex-direction: column;
 }
 
-.theMaskPage h1 {
+.theMaskPage h2 {
     font-size: 80px;
     line-height: 0.7;
     width: min-content;
@@ -181,7 +190,6 @@ h1 {
 }
 
 .theMaskContent p {
-    font-family: 'Gatwick', sans-serif;
     text-align: justify;
     font-size: 1.2em;
     width: 40%;
@@ -190,11 +198,65 @@ h1 {
     padding: 0 1em 0 0.5em;
 }
 
+.theMaskContent p,
+.theFormulaContent p {
+    font-family: 'Gatwick', sans-serif;
+}
+
+/* The Formula Page */
+
+.theFormulaPage {
+    background: linear-gradient(to right, var(--page-color) 5%, var(--dark-color) 5%, var(--dark-color) 95%, var(--page-color) 35%);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.theFormulaContainer {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.theFormulaContainer h2 {
+    color: var(--page-color);
+    line-height: 0.8;
+    text-align: center;
+}
+
+.theFormulaContent {
+    margin-top: 0.5em;
+}
+
+.theFormulaContent p {
+    color: var(--page-color);
+    line-height: 1.5;
+    text-align: justify;
+    font-size: 0.5em;
+}
+
+.theFormulaContent p:nth-of-type(2) {
+    margin-top: 1em;
+}
+
+.theFormulaContainer img {
+    margin-top: 0.1em;
+    height: 530px;
+    object-fit: cover;
+    object-position: top;
+}
+
 /* footer styles */
 footer {
     color: var(--dark-color);
     text-align: center;
     margin-bottom: 1em;
+}
+
+footer p,
+footer a {
+    font-family: 'Aileron', sans-serif;
 }
 
 /* tablet */
@@ -250,6 +312,22 @@ footer {
         font-size: 1em;
         line-height: 1.2;
         padding: 0 0.5em 0 0.5em;
+    }
+
+    .theFormulaContainer {
+        width: 80%;
+    }
+
+    .theFormulaContainer h2 {
+        font-size: 3em;
+    }
+
+    .theFormulaContent p {
+        
+    }
+
+    .theFormulaContainer img {
+        height: 345px;
     }
 }
 

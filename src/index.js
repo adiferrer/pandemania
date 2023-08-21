@@ -1,6 +1,7 @@
 import "./styles.css";
 import shufflePlaceholder from "./assets/images/shufflePlaceholder.jpeg";
 import theMaskPlaceholder from "./assets/images/theMaskPlaceholder.jpeg";
+import theFormulaPlaceholder from "./assets/images/theFormulaPlaceholder.jpeg";
 
 // helper functions
 
@@ -16,15 +17,15 @@ function createElementWithClass(tagName, className, textContent) {
 function createContentDiv(number, title, author) {
   const contentDiv = document.createElement("div");
 
-  const contentNumber = createElementWithClass("h2", "TOCNumber", number);
+  const contentNumber = createElementWithClass("h3", "TOCNumber", number);
   contentNumber.textContent = number;
 
   const contentRight = document.createElement("div");
 
-  const contentTitle = createElementWithClass("h2", "TOCTitle", title);
+  const contentTitle = createElementWithClass("h3", "TOCTitle", title);
   contentTitle.textContent = title;
 
-  const contentCredit = createElementWithClass("h3", "TOCCredit", author);
+  const contentCredit = createElementWithClass("p", "TOCCredit", author);
   contentCredit.textContent = `BY: ${author}`;
 
   contentRight.appendChild(contentTitle);
@@ -63,11 +64,11 @@ function renderTableOfContents() {
 
   const titleDivTOC = document.createElement("div");
   titleDivTOC.classList.add("titleDivTOC");
-  const titleTopTOC = document.createElement("h2");
+  const titleTopTOC = document.createElement("h3");
   titleTopTOC.textContent = "Anxiety";
-  const titleBottomTOC = document.createElement("h2");
+  const titleBottomTOC = document.createElement("h3");
   titleBottomTOC.textContent = "Aspirations";
-  const titleSubTOC = document.createElement("h3");
+  const titleSubTOC = document.createElement("h2");
   titleSubTOC.textContent = "Contents";
 
   const contentsTOC = document.createElement("div");
@@ -107,7 +108,7 @@ function renderTableOfContents() {
 
 function renderTheMaskPage() {
   const theMaskPage = createElementWithClass("div", "theMaskPage", null);
-  const theMaskTitle = createElementWithClass("h1", null, "The Mask");
+  const theMaskTitle = createElementWithClass("h2", null, "The Mask");
 
   const theMaskContent = createElementWithClass("div", "theMaskContent", null);
   const theMaskImage = new Image();
@@ -123,6 +124,35 @@ function renderTheMaskPage() {
   theMaskPage.appendChild(theMaskTitle);
   theMaskPage.appendChild(theMaskContent);
   return theMaskPage;
+}
+
+function renderTheFormulaPage() {
+  const theFormulaPage = createElementWithClass("div", "theFormulaPage", null);
+  const theFormulaContainer = createElementWithClass("div", "theFormulaContainer", null);
+  const theFormulaTitle = createElementWithClass("h2", null, "The Formula");
+
+  const theFormulaContent = createElementWithClass("div", "theFormulaContent", null);
+  const theFormulaParagraph1 = createElementWithClass(
+    "p",
+    null,
+    "During this Pandemic, most of my problems and anxieties were due to family problems. In order to cope up with it, I was stress eating most of the time which led me to being overweight. Considering my sport was Basketball that is my usual exercise, contact sports are not allowed, which I cannot do. This has caused a lot of insecurities to myself as I am out of shape."
+  );
+  const theFormulaParagraph2 = createElementWithClass(
+    "p",
+    null,
+    "Thankfully, the Formula 1 sport came to my life. I was very intrigued and interested in the sport that I wanted to become an F1 Driver even though it is impossible. I discovered that the drivers of the sport need to be physically fit as it is demanded and needed in performing. This has inspired me to workout and enroll in a gym which led me to lose weight recently. I learned that motivation can really be from anything."
+  );
+  const theFormulaPicture = new Image();
+  theFormulaPicture.src = theFormulaPlaceholder;
+
+  theFormulaContent.appendChild(theFormulaParagraph1);
+  theFormulaContent.appendChild(theFormulaParagraph2);
+  theFormulaContainer.appendChild(theFormulaTitle);
+  theFormulaContainer.appendChild(theFormulaContent);
+  theFormulaContainer.appendChild(theFormulaPicture);
+  theFormulaPage.appendChild(theFormulaContainer);
+
+  return theFormulaPage;
 }
 
 function renderFooter() {
@@ -142,6 +172,7 @@ function renderPage() {
     renderCoverPage(),
     renderTableOfContents(),
     renderTheMaskPage(),
+    renderTheFormulaPage(),
     renderFooter(),
   ];
   container.append(...components);
