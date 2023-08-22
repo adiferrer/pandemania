@@ -217,6 +217,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 1em;
 }
 
 .theFormulaContainer h2 {
@@ -242,9 +243,50 @@ p {
 
 .theFormulaContainer img {
     margin-top: 0.1em;
-    height: 530px;
+    height: 500px;
     object-fit: cover;
     object-position: top;
+}
+
+/* a moment in my head page styles */
+.aMomentInMyHeadContainer {
+    display: flex;
+}
+
+.aMomentInMyHeadContainer h2 {
+    text-transform: lowercase;
+    writing-mode: vertical-rl;
+    line-height: 0.5;
+    width: 10%;
+}
+
+.aMomentInMyHeadContainer h2:nth-of-type(2) {
+    transform: rotate(180deg);
+}
+
+.aMomentInMyHeadContainer h2:nth-of-type(2),
+.aMomentInMyHeadCenter p {
+    color: var(--dark-color);
+}
+
+.aMomentInMyHeadCenter {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aMomentInMyHeadCenter img {
+    margin-top: 1em;
+    width: calc(600px * 0.7);
+}
+
+.aMomentInMyHeadCenter p {
+    margin-top: 1em;
+    font-size: 0.7em;
+    width: 30%;
+    text-align: justify;
+    letter-spacing: 1px;
 }
 
 /* footer styles */
@@ -304,7 +346,7 @@ footer a {
         height: 80%;
     }
 
-    .theMaskPage h1 {
+    .theMaskPage h2 {
         font-size: 70px;
     }
 
@@ -322,12 +364,24 @@ footer a {
         font-size: 3em;
     }
 
-    .theFormulaContent p {
-        
+    .theFormulaContainer img {
+        height: 330px;
     }
 
-    .theFormulaContainer img {
-        height: 345px;
+    .aMomentInMyHeadContainer h2 {
+        font-size: 2.5em;
+        text-align: center;
+        letter-spacing: 9px;
+    }
+
+    .aMomentInMyHeadCenter p {
+        font-size: 0.7em;
+        width: 50%;
+    }
+
+    .aMomentInMyHeadCenter img {
+        margin-top: 1em;
+        width: calc(400px * 0.7);
     }
 }
 

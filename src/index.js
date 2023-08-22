@@ -2,6 +2,7 @@ import "./styles.css";
 import shufflePlaceholder from "./assets/images/shufflePlaceholder.jpeg";
 import theMaskPlaceholder from "./assets/images/theMaskPlaceholder.jpeg";
 import theFormulaPlaceholder from "./assets/images/theFormulaPlaceholder.jpeg";
+import aMomentInMyHeadPlaceholder from "./assets/images/aMomentInMyHeadPlaceholder.jpeg";
 
 // helper functions
 
@@ -50,26 +51,17 @@ function renderCoverPage() {
 }
 
 function renderTableOfContents() {
-  const tableOfContents = document.createElement("div");
-  tableOfContents.classList.add("tableOfContents");
+  const tableOfContents = createElementWithClass("div", "tableOfContents");
 
-  const leftTOC = document.createElement("div"); // left side of table of contents
-  leftTOC.classList.add("leftTOC");
-  const verticalText = document.createElement("div");
-  verticalText.textContent = "Life in the Pandemic";
+  const leftTOC = createElementWithClass("div", "leftTOC");
+  const verticalText = createElementWithClass("div", null, "Life in the Pandemic");
   leftTOC.appendChild(verticalText);
 
-  const rightTOC = document.createElement("div"); // right side of table of contents
-  rightTOC.classList.add("rightTOC");
-
-  const titleDivTOC = document.createElement("div");
-  titleDivTOC.classList.add("titleDivTOC");
-  const titleTopTOC = document.createElement("h3");
-  titleTopTOC.textContent = "Anxiety";
-  const titleBottomTOC = document.createElement("h3");
-  titleBottomTOC.textContent = "Aspirations";
-  const titleSubTOC = document.createElement("h2");
-  titleSubTOC.textContent = "Contents";
+  const rightTOC = createElementWithClass("div", "rightTOC");
+  const titleDivTOC = createElementWithClass("div", "titleDivTOC");
+  const titleTopTOC = createElementWithClass("h3", null, "Anxiety");
+  const titleBottomTOC = createElementWithClass("h3", null, "Aspirations");
+  const titleSubTOC = createElementWithClass("h2", null, "Contents");
 
   const contentsTOC = document.createElement("div");
   contentsTOC.classList.add("contentsTOC");
@@ -96,13 +88,9 @@ function renderTableOfContents() {
     contentsTOC.appendChild(contentDiv);
   });
 
-  titleDivTOC.appendChild(titleTopTOC);
-  titleDivTOC.appendChild(titleBottomTOC);
-  titleDivTOC.appendChild(titleSubTOC);
-  rightTOC.appendChild(titleDivTOC);
-  rightTOC.appendChild(contentsTOC);
-  tableOfContents.appendChild(leftTOC);
-  tableOfContents.appendChild(rightTOC);
+  titleDivTOC.append(titleTopTOC, titleBottomTOC, titleSubTOC);
+  rightTOC.append(titleDivTOC, contentsTOC);
+  tableOfContents.append(leftTOC, rightTOC);
   return tableOfContents;
 }
 
@@ -144,15 +132,33 @@ function renderTheFormulaPage() {
   );
   const theFormulaPicture = new Image();
   theFormulaPicture.src = theFormulaPlaceholder;
-
-  theFormulaContent.appendChild(theFormulaParagraph1);
-  theFormulaContent.appendChild(theFormulaParagraph2);
-  theFormulaContainer.appendChild(theFormulaTitle);
-  theFormulaContainer.appendChild(theFormulaContent);
-  theFormulaContainer.appendChild(theFormulaPicture);
+  
+  theFormulaContent.append(theFormulaParagraph1, theFormulaParagraph2);
+  theFormulaContainer.append(theFormulaTitle, theFormulaContent, theFormulaPicture);
   theFormulaPage.appendChild(theFormulaContainer);
-
   return theFormulaPage;
+}
+
+function renderAMomentInMyHeadPage() {
+  const aMomentInMyHeadPage = createElementWithClass("div", "aMomentInMyHeadPage", null);
+  const aMomentInMyHeadContainer = createElementWithClass("div", "aMomentInMyHeadContainer", null);
+
+  const aMomentInMyHeadTitleLeft = createElementWithClass("h2", null, "a moment in my head");
+  const aMomentInMyHeadTitleRight = createElementWithClass("h2", null, "a moment in my head");
+
+  const aMomentInMyHeadCenter = createElementWithClass("div", "aMomentInMyHeadCenter", null);
+  const aMomentInMyHeadImage = new Image();
+  aMomentInMyHeadImage.src = aMomentInMyHeadPlaceholder;
+  const aMomentInMyHeadParagraph1 = createElementWithClass(
+    "p",
+    null,
+    "this work represents my anxieties over the course of the pandemic and the lockdown, the grim reaper represents how much death and the anxiety of it has been a cause of worry, as is the symbolism of academic failure and the fear of failing and not graduating scattered around the human representation, the human is in a middle of an anxiety attack reflected on my worries about school, as well as the use of dark colours to help high-light what my worries are compared to other people."
+  );
+
+  aMomentInMyHeadCenter.append(aMomentInMyHeadImage, aMomentInMyHeadParagraph1);
+  aMomentInMyHeadContainer.append(aMomentInMyHeadTitleLeft, aMomentInMyHeadCenter, aMomentInMyHeadTitleRight);
+  aMomentInMyHeadPage.appendChild(aMomentInMyHeadContainer);
+  return aMomentInMyHeadPage;
 }
 
 function renderFooter() {
@@ -173,6 +179,7 @@ function renderPage() {
     renderTableOfContents(),
     renderTheMaskPage(),
     renderTheFormulaPage(),
+    renderAMomentInMyHeadPage(),
     renderFooter(),
   ];
   container.append(...components);
