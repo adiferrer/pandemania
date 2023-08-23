@@ -3,6 +3,7 @@ import shufflePlaceholder from "./assets/images/shufflePlaceholder.jpeg";
 import theMaskPlaceholder from "./assets/images/theMaskPlaceholder.jpeg";
 import theFormulaPlaceholder from "./assets/images/theFormulaPlaceholder.jpeg";
 import aMomentInMyHeadPlaceholder from "./assets/images/aMomentInMyHeadPlaceholder.jpeg";
+import aNewChallengePlaceholder from "./assets/images/aNewChallengePlaceholder.jpeg";
 
 // helper functions
 
@@ -161,6 +162,24 @@ function renderAMomentInMyHeadPage() {
   return aMomentInMyHeadPage;
 }
 
+function renderANewChallengePage() {
+  const aNewChallengePage = createElementWithClass("div", "aNewChallengePage", null);
+  const aNewChallengeTitle = createElementWithClass("h2", null, "A New Challenge");
+
+  const aNewChallengeContent = createElementWithClass("div", "aNewChallengeContent", null);
+  const aNewChallengePicture = new Image();
+  aNewChallengePicture.src = aNewChallengePlaceholder;
+  const aNewChallengeParagraph1 = createElementWithClass(
+    "p",
+    null,
+    "I wanted my art to reflect a positive part of my pandemic life. I often get stressed with the combination of school work and home life, and I usually play Genshin Impact to calm myself down and escape for a while. I also believe the best way I’ve kept myself from the anxieties of this world was by occupying myself with new challenges, to stimulate my brain. So I thought I would try for the first time, some sprite/8bit art of my favourite character from genshin! I wasn’t that good at free-handing it, so I layered an existing photo of the character underneath and kind of outlined it, but I thought it came out pretty good!"
+  );
+
+  aNewChallengeContent.append(aNewChallengePicture, aNewChallengeParagraph1);
+  aNewChallengePage.append(aNewChallengeTitle, aNewChallengeContent);
+  return aNewChallengePage;
+}
+
 function renderFooter() {
   const footer = createElementWithClass("footer", null);
   const footerText = createElementWithClass(
@@ -180,6 +199,7 @@ function renderPage() {
     renderTheMaskPage(),
     renderTheFormulaPage(),
     renderAMomentInMyHeadPage(),
+    renderANewChallengePage(),
     renderFooter(),
   ];
   container.append(...components);

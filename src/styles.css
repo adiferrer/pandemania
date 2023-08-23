@@ -289,6 +289,42 @@ p {
     letter-spacing: 1px;
 }
 
+/* a new challenge page styles */
+.aNewChallengePage {
+    background-color: var(--dark-color) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.aNewChallengePage h2 {
+    margin-top: 0.5em;
+    color: var(--page-color);
+    width: 80%;
+    font-size: 4.5em;
+    text-align: center;
+    text-transform: capitalize;
+    line-height: 0.7;
+    background: linear-gradient(to bottom, transparent 30%, var(--light-color) 0%, var(--light-color) 80%, transparent 0%);
+}
+
+.aNewChallengeContent {
+    margin-top: 2em;
+    display: flex;
+}
+
+.aNewChallengeContent img {
+    width: 50%;
+    height: 100%;
+}
+
+.aNewChallengeContent p {
+    margin: 0 1em;
+    text-align: justify;
+    font-size: 1em;
+    color: var(--page-color);
+}
+
 /* footer styles */
 footer {
     color: var(--dark-color);
@@ -322,10 +358,12 @@ footer a {
         height: 600px;
     }
 
+    /* cover styles */
     h1 {
         font-size: 50px;
     }
 
+    /* table of contents styles */
     .leftTOC>div {
         font-size: 3.2em;
     }
@@ -342,6 +380,8 @@ footer a {
         font-size: 1.3em;
     }
 
+    /* The Mask Page */ 
+
     .theMaskContent {
         height: 80%;
     }
@@ -356,6 +396,8 @@ footer a {
         padding: 0 0.5em 0 0.5em;
     }
 
+    /* The Formula Page */
+
     .theFormulaContainer {
         width: 80%;
     }
@@ -367,6 +409,8 @@ footer a {
     .theFormulaContainer img {
         height: 330px;
     }
+
+    /* a moment in my head page styles */
 
     .aMomentInMyHeadContainer h2 {
         font-size: 2.5em;
@@ -382,6 +426,25 @@ footer a {
     .aMomentInMyHeadCenter img {
         margin-top: 1em;
         width: calc(400px * 0.7);
+    }
+
+    /* a new challenge page styles */
+    .aNewChallengePage h2 {
+        font-size: 3.5em;
+        margin-top: 0.2em;
+    }
+
+    .aNewChallengeContent {
+        margin-top: 1em;
+    }
+
+    .aNewChallengeContent img {
+        width: 50%;
+    }
+
+    .aNewChallengeContent p {
+        margin: 0 0.7em;
+        font-size: 0.8em;
     }
 }
 
