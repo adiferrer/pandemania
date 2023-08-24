@@ -180,6 +180,33 @@ function renderANewChallengePage() {
   return aNewChallengePage;
 }
 
+function renderCagedPage() {
+  const cagedPage = createElementWithClass("div", "cagedPage", null);
+
+  const cagedLeft = createElementWithClass("div", "cagedLeft", null);
+  const cagedTitle = createElementWithClass("h2", null, "Caged");
+  const leftParagraphs = createElementWithClass("div", null, null);
+  const cagedParagraph1 = createElementWithClass(
+    "p",
+    null,
+    "Pandemic has made a lot of changes to our world. And for me, I never felt like I'd been trapped in my own home. The place that used to give me comfort and rest, has now become a place of stress and work. I can no longer go outside as much because of fear of getting sick. There was a time where I felt depressed because of school requirements and my family getting ill."
+  );
+  const cagedParagraph2 = createElementWithClass(
+    "p",
+    null,
+    "Thankfully, God has helped me through these times. He gave me comfort when I was at my lowest. And now, I have become stronger than before. I can balance both my work in my courses and have some time for myself and my hobbies. As for this pandemic, even though everything seems to go downhill, I still have this positive outlook that this will soon pass and that everything will become better. Because even circumstances like this, I can still find happiness with things I do; either with my friends or family."
+  );
+
+  const cagedRight = createElementWithClass("div", "cagedRight", null);
+  const cagedImageLoop = createElementWithClass("div", "cagedImageLoop", null);
+
+  leftParagraphs.append(cagedParagraph1, cagedParagraph2);
+  cagedLeft.append(cagedTitle, leftParagraphs);
+  cagedRight.appendChild(cagedImageLoop);
+  cagedPage.append(cagedLeft, cagedRight);
+  return cagedPage;
+}
+
 function renderFooter() {
   const footer = createElementWithClass("footer", null);
   const footerText = createElementWithClass(
@@ -200,6 +227,7 @@ function renderPage() {
     renderTheFormulaPage(),
     renderAMomentInMyHeadPage(),
     renderANewChallengePage(),
+    renderCagedPage(),
     renderFooter(),
   ];
   container.append(...components);

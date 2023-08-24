@@ -204,7 +204,6 @@ p {
 }
 
 /* The Formula Page */
-
 .theFormulaPage {
     background: linear-gradient(to right, var(--page-color) 5%, var(--dark-color) 5%, var(--dark-color) 95%, var(--page-color) 35%);
     display: flex;
@@ -325,6 +324,50 @@ p {
     color: var(--page-color);
 }
 
+/* caged styles */
+.cagedPage {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--light-color) !important;
+}
+
+.cagedLeft {
+    width: 45%;
+}
+
+.cagedLeft h2 {
+    margin-top: 0.1em;
+    color: var(--page-color);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.cagedLeft > div:last-of-type {
+    margin-top: 1em;
+    background-color: var(--dark-color);
+    padding: 0.9em;
+}
+
+.cagedLeft > div:last-of-type > p {
+    color: var(--page-color);
+    font-size: 0.75em;
+}
+
+.cagedRight {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.cagedImageLoop {
+    width: 100%;
+    /* repeat background image with gaps */
+    background: url('./assets/images/cagedPlaceholder.jpeg');
+    background-repeat: repeat-y; 
+    background-size: 100% auto;
+    background-position: center;
+}
+
 /* footer styles */
 footer {
     color: var(--dark-color);
@@ -381,7 +424,6 @@ footer a {
     }
 
     /* The Mask Page */ 
-
     .theMaskContent {
         height: 80%;
     }
@@ -397,7 +439,6 @@ footer a {
     }
 
     /* The Formula Page */
-
     .theFormulaContainer {
         width: 80%;
     }
@@ -411,7 +452,6 @@ footer a {
     }
 
     /* a moment in my head page styles */
-
     .aMomentInMyHeadContainer h2 {
         font-size: 2.5em;
         text-align: center;
@@ -445,6 +485,15 @@ footer a {
     .aNewChallengeContent p {
         margin: 0 0.7em;
         font-size: 0.8em;
+    }
+
+    /* caged styles */
+    .cagedLeft h2 {
+        font-size: 3.5em;
+    }
+
+    .cagedLeft > div:last-of-type > p {
+        font-size: 0.55em;
     }
 }
 
