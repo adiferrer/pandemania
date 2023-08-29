@@ -13,7 +13,8 @@
 }
 
 :root {
-    --page-color: rgb(254,251,246);
+    --dirtywhite-color: rgb(254,251,246);
+    --page-color: rgb(249,246,238);
     --light-color: rgb(177,183,212);
     --dark-color: rgb(115,126,167);
 }
@@ -25,55 +26,68 @@
 }
 
 body {
-    background-color: var(--bg-color);
+    width: 100vw;
+    background-color: var(--page-color);
     font-family: 'Aileron', sans-serif;
-    font-size: 16px;
 }
 
 h1 {
-    margin-top: 0.5em;
-    padding-top: 0.5em;
+    font-size: 7em;
+}
+
+h2 {
+    font-size: 7em;
+    line-height: 0.7;
 }
 
 h1,
 h2 {
     color: var(--light-color);
     text-transform: uppercase;
-    font-size: 4.6em;
     font-weight: 700;
 }
 
 p {
     font-family: 'Gatwick', sans-serif;
+    font-size: 1em;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    text-align: justify;
 }
 
 .container {
-    margin: 0 auto;
-    width: 600px;
-    padding: 0 1rem;
-
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 5em;
+    align-items: center;
 }
 
 .container>div {
-    height: 800px;
-    background-color: var(--page-color);
-    box-shadow: 0px 0px 7px gray;
+    padding: 1em;
+    width: 90%;
 }
 
-/* cover styles */
+/* cover hero style */
 .cover {
-    margin-top: 2em;
-    padding: 0 3em 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.cover>img {
+.cover h1 {
+    text-align: center;
+}
+
+.coverDisclaimer {
+    font-size: 0.8em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.cover img {
     width: 100%;
-    height: calc(100% - 4em - 20%);
+    height: 50vh;
     object-fit: cover;
-    object-position: center;
 }
 
 /* table of contents styles */
@@ -82,12 +96,10 @@ p {
 }
 
 .leftTOC>div {
-    /* text should be vertical */
     writing-mode: vertical-rl;
     transform: rotate(180deg);
 
     color: var(--light-color);
-    /* font-size: 4.2em; */
     font-size: 70px;
     letter-spacing: -2px;
     line-height: 0.7;
@@ -98,6 +110,7 @@ p {
     flex: 1;
     display: flex;
     flex-direction: column;
+    margin-left: 1em;
 }
 
 .titleDivTOC {
@@ -109,24 +122,23 @@ p {
 
 .titleDivTOC>h3:first-of-type {
     color: var(--dark-color);
-    font-size: 3em;
+    font-size: 4em;
     font-weight: 700;
     text-transform: uppercase;
-    margin-top: 0.7em;
 }
 
 .titleDivTOC>h3:last-of-type {
     color: var(--light-color);
-    font-size: 2em;
+    font-size: 3em;
     font-weight: 700;
     text-transform: uppercase;
     transform: rotate(180deg);
     line-height: 0.1;
 }
 
-.titleDivTOC>h2 {
+.titleDivTOC h2 {
     color: var(--dark-color);
-    font-size: 0.9em;
+    font-size: 1.2em;
     font-weight: 700;
     text-transform: lowercase;
     margin-top: 1.5em;
@@ -135,10 +147,11 @@ p {
 
 .contentsTOC {
     flex: 1;
+    height: 80%;
     padding: 1.5em 1em 0;
     display: grid;
-    gap: 1em;
     grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
 }
 
 .contentDivTOC {
@@ -147,104 +160,96 @@ p {
 
 .TOCNumber {
     color: var(--dark-color);
-    font-size: 3em;
+    font-size: 4em;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1;
+    margin-right: 0.3em;
 }
 
-.TOCCredit {
+.TOCTitle {
+    font-size: 2em;
+    text-decoration: none;
+}
+
+.TOCTitle:hover {
+    text-decoration: underline;
+}
+
+.TOCCredit,
+.TOCCredit a {
     color: var(--dark-color);
-    font-size: 0.7em;
+    font-size: 1em;
     font-family: 'Aileron', sans-serif;
+    line-height: 1;
 }
 
-/* The Mask Page */ 
+.TOCCredit a {
+    text-decoration: none;
+}
+
+.TOCCredit a:hover {
+    text-decoration: underline;
+}
+
+/* the mask styles */
 .theMaskPage {
     background: linear-gradient(to right, var(--page-color) 50%, var(--light-color) 50%);
 }
 
-.theMaskPage {
-    display: flex;
-    flex-direction: column;
-}
-
 .theMaskPage h2 {
-    font-size: 80px;
-    line-height: 0.7;
     width: min-content;
-    margin: 0;
-    padding: 0;
+    margin-bottom: 0.3em;
 }
 
 .theMaskContent {
     display: flex;
-    
+    align-items: center;
 }
 
 .theMaskContent img {
-    object-fit: cover;
-    object-position: center;
-    width: 60%;
+    width: 53%;
     height: 100%;
+    object-fit: cover;
 }
 
 .theMaskContent p {
-    text-align: justify;
-    font-size: 1.2em;
-    width: 40%;
-    color: var(--page-color);
-    line-height: 1.5;
-    padding: 0 1em 0 0.5em;
+    width: 47%;
+    margin: 0 0.5em;
+    color: var(--dirtywhite-color);
 }
 
-.theMaskContent p,
-.theFormulaContent p {
-    font-family: 'Gatwick', sans-serif;
-}
-
-/* The Formula Page */
+/* the formula styles */
 .theFormulaPage {
-    background: linear-gradient(to right, var(--page-color) 5%, var(--dark-color) 5%, var(--dark-color) 95%, var(--page-color) 35%);
-    display: flex;
-    justify-content: center;
-    align-items: start;
-}
-
-.theFormulaContainer {
-    width: 400px;
+    background-color: var(--dark-color) !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 1em;
+    align-items: center;
 }
 
-.theFormulaContainer h2 {
-    color: var(--page-color);
-    line-height: 0.8;
+.theFormulaPage h2,
+.theFormulaPage div,
+.theFormulaPage img {
+    width: 60%;
+}
+
+.theFormulaPage h2,
+.theFormulaPage p {
+    color: var(--dirtywhite-color);
+}
+
+.theFormulaPage h2 {
     text-align: center;
+    margin-bottom: 0.1em;
 }
 
-.theFormulaContent {
-    margin-top: 0.5em;
-}
-
-.theFormulaContent p {
-    color: var(--page-color);
-    line-height: 1.5;
-    text-align: justify;
-    font-size: 0.5em;
-}
-
-.theFormulaContent p:nth-of-type(2) {
+.theFormulaPage p:not(:first-of-type) {
     margin-top: 1em;
 }
 
-.theFormulaContainer img {
-    margin-top: 0.1em;
-    height: 500px;
-    object-fit: cover;
-    object-position: top;
+.theFormulaPage img {
+    margin-top: 0.2em;
 }
 
 /* a moment in my head page styles */
@@ -256,7 +261,7 @@ p {
     text-transform: lowercase;
     writing-mode: vertical-rl;
     line-height: 0.5;
-    width: 10%;
+    height: max-content;
 }
 
 .aMomentInMyHeadContainer h2:nth-of-type(2) {
@@ -277,15 +282,12 @@ p {
 
 .aMomentInMyHeadCenter img {
     margin-top: 1em;
-    width: calc(600px * 0.7);
+    width: 80%;
 }
 
 .aMomentInMyHeadCenter p {
     margin-top: 1em;
-    font-size: 0.7em;
-    width: 30%;
-    text-align: justify;
-    letter-spacing: 1px;
+    width: 50%;
 }
 
 /* a new challenge page styles */
@@ -297,10 +299,8 @@ p {
 }
 
 .aNewChallengePage h2 {
-    margin-top: 0.5em;
     color: var(--page-color);
     width: 80%;
-    font-size: 4.5em;
     text-align: center;
     text-transform: capitalize;
     line-height: 0.7;
@@ -319,8 +319,6 @@ p {
 
 .aNewChallengeContent p {
     margin: 0 1em;
-    text-align: justify;
-    font-size: 1em;
     color: var(--page-color);
 }
 
@@ -350,7 +348,6 @@ p {
 
 .cagedLeft > div:last-of-type > p {
     color: var(--page-color);
-    font-size: 0.75em;
 }
 
 .cagedRight {
@@ -361,7 +358,6 @@ p {
 
 .cagedImageLoop {
     width: 100%;
-    /* repeat background image with gaps */
     background: url('./assets/images/cagedPlaceholder.jpeg');
     background-repeat: repeat-y; 
     background-size: 100% auto;
@@ -372,7 +368,7 @@ p {
 footer {
     color: var(--dark-color);
     text-align: center;
-    margin-bottom: 1em;
+    margin: 1em 0;
 }
 
 footer p,
@@ -395,10 +391,21 @@ footer a {
 @media screen and (max-width: 600px) {
     .container {
         width: 427px;
+        margin: auto;
     }
 
     .container>div {
-        height: 600px;
+        height: 100%;
+    }
+
+    h2 {
+        font-size: 4em;
+        line-height: 0.75;
+    }
+
+    p {
+        font-size: 0.8em !important;
+        text-align: left;
     }
 
     /* cover styles */
@@ -409,6 +416,14 @@ footer a {
     /* table of contents styles */
     .leftTOC>div {
         font-size: 3.2em;
+    }
+
+    .titleDivTOC h3:last-of-type {
+        line-height: 0.3;
+    }
+
+    .tableOfContents h3 {
+        font-size: 2em !important;
     }
 
     .contentsTOC {
@@ -428,26 +443,24 @@ footer a {
         height: 80%;
     }
 
-    .theMaskPage h2 {
-        font-size: 70px;
-    }
-
     .theMaskContent p {
-        font-size: 1em;
+        font-size: 0.3em;
         line-height: 1.2;
         padding: 0 0.5em 0 0.5em;
     }
 
     /* The Formula Page */
-    .theFormulaContainer {
+    .theFormulaPage h2,
+    .theFormulaPage div,
+    .theFormulaPage img {
         width: 80%;
     }
 
-    .theFormulaContainer h2 {
+    .theFormulaPage h2 {
         font-size: 3em;
     }
 
-    .theFormulaContainer img {
+    .theFormulaPage img {
         height: 330px;
     }
 
@@ -496,4 +509,3 @@ footer a {
         font-size: 0.55em;
     }
 }
-

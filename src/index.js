@@ -24,11 +24,17 @@ function createContentDiv(number, title, author) {
 
   const contentRight = document.createElement("div");
 
-  const contentTitle = createElementWithClass("h3", "TOCTitle", title);
+  const contentTitle = document.createElement("a");
+  contentTitle.classList.add("TOCTitle");
+  contentTitle.href = `#${title}`;
   contentTitle.textContent = title;
 
-  const contentCredit = createElementWithClass("p", "TOCCredit", author);
-  contentCredit.textContent = `BY: ${author}`;
+  const contentCredit = createElementWithClass("p", "TOCCredit", null);
+  contentCredit.textContent = `BY: `;
+  const contentCreditLink = createElementWithClass("a", null, author);
+  contentCreditLink.setAttribute("target", "_blank");
+  contentCreditLink.setAttribute("href", "#");
+  contentCredit.append(contentCreditLink);
 
   contentRight.appendChild(contentTitle);
   contentRight.appendChild(contentCredit);
@@ -44,10 +50,15 @@ function createContentDiv(number, title, author) {
 function renderCoverPage() {
   const cover = createElementWithClass("div", "cover");
   const coverTitle = createElementWithClass("h1", null, "Pandemania");
+  const coverDisclaimer = createElementWithClass("p", "coverDisclaimer", "*All images displayed are merely placeholders. Credits are found in the ")
+  const disclaimerLink = createElementWithClass("a", null, "GitHub repository");
+  disclaimerLink.setAttribute("href", "https://github.com/adiferrer/pandemania");
+  disclaimerLink.setAttribute("target", "_blank");
+  const disclaimerContinuation = document.createTextNode(". To view the original artworks, please click on the artist links in the table of contents.");
+  coverDisclaimer.append(disclaimerLink, disclaimerContinuation);
   const coverImage = new Image();
   coverImage.src = shufflePlaceholder;
-  cover.appendChild(coverTitle);
-  cover.appendChild(coverImage);
+  cover.append(coverTitle, coverDisclaimer, coverImage);
   return cover;
 }
 
@@ -97,6 +108,7 @@ function renderTableOfContents() {
 
 function renderTheMaskPage() {
   const theMaskPage = createElementWithClass("div", "theMaskPage", null);
+  theMaskPage.setAttribute('id', 'The Mask');
   const theMaskTitle = createElementWithClass("h2", null, "The Mask");
 
   const theMaskContent = createElementWithClass("div", "theMaskContent", null);
@@ -107,8 +119,7 @@ function renderTheMaskPage() {
     null,
     "Entering this global pandemic, we have been required to wear masks for the benefit of our safety. This artwork shows a different side of how these masks covered not just our mouth and nose, but also our eyes and the reality we could have had if it weren’t for the global phenomenon and the poor government response."
   );
-  theMaskContent.appendChild(theMaskImage);
-  theMaskContent.appendChild(theMaskText);
+  theMaskContent.append(theMaskImage, theMaskText);
 
   theMaskPage.appendChild(theMaskTitle);
   theMaskPage.appendChild(theMaskContent);
@@ -117,7 +128,7 @@ function renderTheMaskPage() {
 
 function renderTheFormulaPage() {
   const theFormulaPage = createElementWithClass("div", "theFormulaPage", null);
-  const theFormulaContainer = createElementWithClass("div", "theFormulaContainer", null);
+  theFormulaPage.setAttribute('id', 'The Formula');
   const theFormulaTitle = createElementWithClass("h2", null, "The Formula");
 
   const theFormulaContent = createElementWithClass("div", "theFormulaContent", null);
@@ -135,13 +146,13 @@ function renderTheFormulaPage() {
   theFormulaPicture.src = theFormulaPlaceholder;
   
   theFormulaContent.append(theFormulaParagraph1, theFormulaParagraph2);
-  theFormulaContainer.append(theFormulaTitle, theFormulaContent, theFormulaPicture);
-  theFormulaPage.appendChild(theFormulaContainer);
+  theFormulaPage.append(theFormulaTitle, theFormulaContent, theFormulaPicture);
   return theFormulaPage;
 }
 
 function renderAMomentInMyHeadPage() {
   const aMomentInMyHeadPage = createElementWithClass("div", "aMomentInMyHeadPage", null);
+  aMomentInMyHeadPage.setAttribute('id', 'a moment in my head');
   const aMomentInMyHeadContainer = createElementWithClass("div", "aMomentInMyHeadContainer", null);
 
   const aMomentInMyHeadTitleLeft = createElementWithClass("h2", null, "a moment in my head");
@@ -164,6 +175,7 @@ function renderAMomentInMyHeadPage() {
 
 function renderANewChallengePage() {
   const aNewChallengePage = createElementWithClass("div", "aNewChallengePage", null);
+  aNewChallengePage.setAttribute('id', 'A New Challenge');
   const aNewChallengeTitle = createElementWithClass("h2", null, "A New Challenge");
 
   const aNewChallengeContent = createElementWithClass("div", "aNewChallengeContent", null);
@@ -182,6 +194,7 @@ function renderANewChallengePage() {
 
 function renderCagedPage() {
   const cagedPage = createElementWithClass("div", "cagedPage", null);
+  cagedPage.setAttribute('id', 'Caged');
 
   const cagedLeft = createElementWithClass("div", "cagedLeft", null);
   const cagedTitle = createElementWithClass("h2", null, "Caged");
@@ -206,6 +219,10 @@ function renderCagedPage() {
   cagedPage.append(cagedLeft, cagedRight);
   return cagedPage;
 }
+
+function renderFuturePage() {}
+
+function renderTheOvermanPage() {}
 
 function renderFooter() {
   const footer = createElementWithClass("footer", null);
