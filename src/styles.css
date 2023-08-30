@@ -348,6 +348,7 @@ p {
 
 .cagedLeft > div:last-of-type > p {
     color: var(--page-color);
+    margin-top: 2em;
 }
 
 .cagedRight {
@@ -362,6 +363,56 @@ p {
     background-repeat: repeat-y; 
     background-size: 100% auto;
     background-position: center;
+}
+
+/* future page styles */
+.futurePage {
+    display: flex;
+}
+
+.futureLeft {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 1em;
+}
+
+.futurePage h2 {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.futureRight {
+    width: 70%;
+    height: 100%;
+}
+
+.futurePage img {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* the overman page styles */
+.theOvermanPage {
+    display: flex;
+    flex-direction: column;
+}
+
+.theOvermanPage h2 {
+    width: min-content;
+}
+
+.theOvermanGrid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.theOvermanGrid > img,
+.theOvermanGrid > div,
+.theOvermanGrid > p {
+    width: 45%;
 }
 
 /* footer styles */
@@ -400,11 +451,11 @@ footer a {
 
     h2 {
         font-size: 4em;
-        line-height: 0.75;
+        line-height: 0.8;
     }
 
     p {
-        font-size: 0.8em !important;
+        font-size: 0.3em !important;
         text-align: left;
     }
 
@@ -444,9 +495,7 @@ footer a {
     }
 
     .theMaskContent p {
-        font-size: 0.3em;
-        line-height: 1.2;
-        padding: 0 0.5em 0 0.5em;
+        padding: 0 0.5em;
     }
 
     /* The Formula Page */
@@ -472,7 +521,6 @@ footer a {
     }
 
     .aMomentInMyHeadCenter p {
-        font-size: 0.7em;
         width: 50%;
     }
 
@@ -497,7 +545,6 @@ footer a {
 
     .aNewChallengeContent p {
         margin: 0 0.7em;
-        font-size: 0.8em;
     }
 
     /* caged styles */
@@ -505,7 +552,8 @@ footer a {
         font-size: 3.5em;
     }
 
-    .cagedLeft > div:last-of-type > p {
-        font-size: 0.55em;
+    /* future page styles */
+    .futureLeft {
+        margin-right: 0.3em;
     }
 }

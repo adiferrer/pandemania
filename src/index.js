@@ -4,6 +4,7 @@ import theMaskPlaceholder from "./assets/images/theMaskPlaceholder.jpeg";
 import theFormulaPlaceholder from "./assets/images/theFormulaPlaceholder.jpeg";
 import aMomentInMyHeadPlaceholder from "./assets/images/aMomentInMyHeadPlaceholder.jpeg";
 import aNewChallengePlaceholder from "./assets/images/aNewChallengePlaceholder.jpeg";
+import theOvermanPlaceholder from "./assets/images/theOvermanPlaceholder.jpeg";
 
 // helper functions
 
@@ -220,9 +221,56 @@ function renderCagedPage() {
   return cagedPage;
 }
 
-function renderFuturePage() {}
+function renderFuturePage() {
+  const futurePage = createElementWithClass("div", "futurePage", null);
+  futurePage.setAttribute('id', 'FUTURE');
 
-function renderTheOvermanPage() {}
+  const futureLeft = createElementWithClass("div", "futureLeft", null);
+  const futureTitle = createElementWithClass("h2", null, "FUTURE");
+  futureLeft.appendChild(futureTitle);
+
+  const futureRight = createElementWithClass("div", "futureRight", null);
+  const futureImage = new Image();
+  futureImage.src = shufflePlaceholder;
+  const futureParagraph1 = createElementWithClass(
+    "p",
+    null,
+    "This digital collage is an escapist representation of my hope for my future in the art and fashion industry which helps my mental health cope with the current situation. I chose the works of Hajime Sorayama as the inspiration for the aesthetic since his campy works to interpret the future matches with mine especially since with the rise of technology this same aesthetic is what i want to bring to my future designs."
+  );
+  futureRight.append(futureImage, futureParagraph1);
+  futurePage.append(futureLeft, futureRight);
+  return futurePage;
+}
+
+function renderTheOvermanPage() {
+  const theOvermanPage = createElementWithClass("div", "theOvermanPage", null);
+  theOvermanPage.setAttribute('id', 'The Overman');
+
+  const theOvermanTitle = createElementWithClass("h2", null, "The Overman");
+
+  const theOvermanGrid =createElementWithClass("div", "theOvermanGrid", null);
+  const theOvermanImage1 = new Image();
+  theOvermanImage1.src = theOvermanPlaceholder;
+  const theOvermanImage2 = new Image();
+  theOvermanImage2.src = theOvermanPlaceholder;
+
+  const theOvermanParagraph1 = createElementWithClass(
+    "p",
+    null,
+    "During this pandemic and even before pandemic I was struggling with bad things happening to me because I was irresponsible. I was naive and just wanted to fit in. It lead me to lose my individuality in the process. What I had thought I wanted to gain which was social acceptance and belonging to a group made me forget who I really was. Individually I am a responsible person, a curious mind, but most of all I am a leader. Too long was I subjecting myself to the toxic whims of others. I chose this artwork because it reminds me of my liberty,"
+  );
+  const theOvermanParagraph2Container = createElementWithClass("div", "theOvermanParagraph2Container", null);
+  const theOvermanParagraph2 = createElementWithClass(
+    "p",
+    null,
+    "liberty from who I became in the process of belonging. This artwork symbolizes my independence from ignorance and into enlightenment. For in freedom and independence from what hinders us in life only can we discover our real selves."
+  );
+  theOvermanParagraph2Container.appendChild(theOvermanParagraph2);
+
+  theOvermanGrid.append(theOvermanParagraph1, theOvermanImage1, theOvermanImage2, theOvermanParagraph2Container);
+  theOvermanPage.append(theOvermanTitle, theOvermanGrid);
+  return theOvermanPage;
+}
 
 function renderFooter() {
   const footer = createElementWithClass("footer", null);
@@ -245,6 +293,8 @@ function renderPage() {
     renderAMomentInMyHeadPage(),
     renderANewChallengePage(),
     renderCagedPage(),
+    renderFuturePage(),
+    // renderTheOvermanPage(),
     renderFooter(),
   ];
   container.append(...components);
