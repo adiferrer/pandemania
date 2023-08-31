@@ -402,17 +402,49 @@ p {
 
 .theOvermanPage h2 {
     width: min-content;
+    margin-bottom: 0.1em;
 }
 
-.theOvermanGrid {
+.theOvermanContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.theOvermanPage img {
+    width: 50%;
+}
+
+.theOvermanParagraph1Container,
+.theOvermanParagraph2Container {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1em 0;
+    background-color: rgba(177, 183, 212, 0.738);
 }
 
-.theOvermanGrid > img,
-.theOvermanGrid > div,
-.theOvermanGrid > p {
-    width: 45%;
+.theOvermanParagraph2Container > p {
+    padding: 1em;
+    background-color: var(--light-color);
+}
+
+.theOvermanParagraph1Container > p,
+.theOvermanParagraph2Container > p {
+    color: var(--dirtywhite-color);
+    width: 70%;
+}
+
+.theOvermanPage img:first-of-type,
+.theOvermanPage p:first-of-type {
+    justify-self: end;
+}
+
+.theOvermanPage img:last-of-type,
+.theOvermanParagraph2Container {
+    justify-self: start;
+}
+
+.theOvermanPage img:last-of-type {
+    align-self: end;
 }
 
 /* footer styles */
@@ -555,5 +587,10 @@ footer a {
     /* future page styles */
     .futureLeft {
         margin-right: 0.3em;
+    }
+
+    /* the overman page styles */
+    .theOvermanContent img {
+        width: 60%;
     }
 }

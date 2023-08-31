@@ -248,17 +248,19 @@ function renderTheOvermanPage() {
 
   const theOvermanTitle = createElementWithClass("h2", null, "The Overman");
 
-  const theOvermanGrid =createElementWithClass("div", "theOvermanGrid", null);
-  const theOvermanImage1 = new Image();
-  theOvermanImage1.src = theOvermanPlaceholder;
-  const theOvermanImage2 = new Image();
-  theOvermanImage2.src = theOvermanPlaceholder;
-
+  const theOvermanContent =createElementWithClass("div", "theOvermanContent", null);
+  const theOvermanParagraph1Container = createElementWithClass("div", "theOvermanParagraph1Container", null);
   const theOvermanParagraph1 = createElementWithClass(
     "p",
     null,
     "During this pandemic and even before pandemic I was struggling with bad things happening to me because I was irresponsible. I was naive and just wanted to fit in. It lead me to lose my individuality in the process. What I had thought I wanted to gain which was social acceptance and belonging to a group made me forget who I really was. Individually I am a responsible person, a curious mind, but most of all I am a leader. Too long was I subjecting myself to the toxic whims of others. I chose this artwork because it reminds me of my liberty,"
   );
+  theOvermanParagraph1Container.appendChild(theOvermanParagraph1);
+  const theOvermanImage1 = new Image();
+  theOvermanImage1.src = theOvermanPlaceholder;
+
+  const theOvermanImage2 = new Image();
+  theOvermanImage2.src = theOvermanPlaceholder;
   const theOvermanParagraph2Container = createElementWithClass("div", "theOvermanParagraph2Container", null);
   const theOvermanParagraph2 = createElementWithClass(
     "p",
@@ -266,9 +268,9 @@ function renderTheOvermanPage() {
     "liberty from who I became in the process of belonging. This artwork symbolizes my independence from ignorance and into enlightenment. For in freedom and independence from what hinders us in life only can we discover our real selves."
   );
   theOvermanParagraph2Container.appendChild(theOvermanParagraph2);
-
-  theOvermanGrid.append(theOvermanParagraph1, theOvermanImage1, theOvermanImage2, theOvermanParagraph2Container);
-  theOvermanPage.append(theOvermanTitle, theOvermanGrid);
+  
+  theOvermanContent.append(theOvermanParagraph1Container, theOvermanImage1, theOvermanImage2, theOvermanParagraph2Container);
+  theOvermanPage.append(theOvermanTitle, theOvermanContent);
   return theOvermanPage;
 }
 
@@ -294,7 +296,7 @@ function renderPage() {
     renderANewChallengePage(),
     renderCagedPage(),
     renderFuturePage(),
-    // renderTheOvermanPage(),
+    renderTheOvermanPage(),
     renderFooter(),
   ];
   container.append(...components);
